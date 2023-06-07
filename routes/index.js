@@ -41,7 +41,6 @@ router.get('/mobs', function (req, res, next) {
 
 //  add a new mob
 router.post('/mobs', function (req, res, next) {
-  const 
   res.send('mobs');
 });
 
