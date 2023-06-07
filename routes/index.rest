@@ -1,0 +1,8 @@
+GET https://mobster-backend-418-production.up.railway.app/mobs
+###
+POST http://localhost:4000/mobs/ HTTP/1.1
+content-type: application/json
+
+{
+  "name" : "JAR"
+}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "dev": "npx nodemon app.js"
+    "dev": "npx nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
