@@ -1,7 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var { v4: uuidv4 } = require('uuid');
+var Joi = require('joi');
 
+const schemaMob = Joi.object({
+  mobName: Joi.string()
+    .alphanum()
+    .min(3)
+    .required(),
+})
+
+const schemaMember = Joi.object({
+  memberName: Joi.string()
+    .min(3)
+    .required(),
+})
 
 const mobs = [
   {
@@ -88,12 +100,18 @@ router.get('/mobs', function (req, res, next) {
 
 //  add a new mob
 router.post('/mobs', function (req, res, next) {
-  const newMob = {
-    mobId: mobs.length + 1,
-    mobName: req.body.mobName
-  };
-  mobs.push(newMob);
-  res.status(201).setHeader('location', `/mobs/${newMob.mobId}`).json(mobs);
+  const validation = schemaMob.validate({mobName: req.body.mobName});
+
+  if (validation.error) {
+    res.status(404).json(validation.error.details[0].message)
+  } else {
+    const newMob = {
+      mobId: mobs.length + 1,
+      mobName: validation.value.mobName
+    } 
+    mobs.push(newMob);
+    res.status(201).setHeader('location', `/mobs/${newMob.mobId}`).json(mobs);
+  }
 });
 
 // get a particular mob
@@ -117,17 +135,20 @@ router.get('/mobs/:mobId/members', function (req, res, next) {
 
 // add a new mob-member to the mob
 router.post('/mobs/:mobId/members', function (req, res, next) {
-  const mobID = +req.params.mobId;
-  const memberName = req.body.memberName;
+  const validation = schemaMember.validate({memberName: req.body.memberName})
 
-  const newMember = {
-    mobId: mobID,
-    memberId: members.length + 1,
-    memberName: memberName,
+  if (validation.error) {
+    res.status(404).json(validation.error.details[0].message);
+  } else {
+    const mobID = +req.params.mobId;
+    const newMember = {
+      mobId: mobID,
+      memberId: members.length + 1,
+      memberName: validation.value.memberName
+    }
+    members.push(newMember)
+    res.status(201).setHeader('location', `/mobs/${mobID}/${newMember}`).json(newMember);
   }
-
-  members.push(newMember)
-  res.status(201).setHeader('location', `/mobs/${mobID}/${newMember}`).json(newMember);
 });
 
 // get a particular mob-member of a particular mob
