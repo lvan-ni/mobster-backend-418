@@ -60,7 +60,15 @@ router.get('/mobs/:mobId', function (req, res, next) {
 
 // get all mob members of a particular mob
 router.get('/mobs/:mobId/members', function (req, res, next) {
-  res.json('members');
+  const mobID = +req.params.mobId;
+  // const arr = members.filter(member => member.mobId === mobID)
+  const arr = []
+  for (let i = 0; i < members.length; i++) {
+    if (members[i].mobId === mobID) {
+      arr.push(members[i])
+    }
+  }
+  res.json(arr);
 });
 
 // add a new mob-member to the mob
