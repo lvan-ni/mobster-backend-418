@@ -1,31 +1,34 @@
 var express = require('express');
 var router = express.Router();
+var { v4: uuidv4 } = require('uuid');
+
+const UUID = uuidv4();
 
 const mobs = [
   {
-    id: 1,
-    name: '418',
+    mobId: 1,
+    mobName: '418',
   },
   {
-    id: 2,
-    name: 'TBG',
+    mobId: 2,
+    mobName: 'TBG',
   },
   {
-    id: 3,
-    name: 'LOGA',
+    mobId: 3,
+    mobName: 'LOGA',
   },
 ];
 
 const members = [
   {
-    memberId: 1,
-    name: 'Nadia',
     mobId: 1,
+    memberId: 1,
+    memberName: 'Nadia',
   },
   {
-    memberId: 2,
-    name: 'Lvan',
     mobId: 1,
+    memberId: 2,
+    memberName: 'Lvan',
   },
 ];
 
@@ -42,14 +45,11 @@ router.get('/mobs', function (req, res, next) {
 //  add a new mob
 router.post('/mobs', function (req, res, next) {
   const newMob = {
-    id: mobs.length + 1,
-    name: req.body.name
+    mobId: mobs.length + 1,
+    mobName: req.body.name
   };
-
   mobs.push(newMob);
-
-  res.status(201).setHeader('location', `/mobs/${newMob.id}`).json(mobs);
-
+  res.status(201).setHeader('location', `/mobs/${newMob.mobId}`).json(mobs);
 });
 
 // get a particular mob
