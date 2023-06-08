@@ -54,7 +54,7 @@ router.post('/mobs', function (req, res, next) {
 
 // get a particular mob
 router.get('/mobs/:mobId', function (req, res, next) {
-  const id = req.params.id;
+  const id = req.params.mobId;
   res.json(mobs[id - 1]);
 });
 
