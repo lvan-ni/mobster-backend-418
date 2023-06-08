@@ -132,7 +132,12 @@ router.post('/mobs/:mobId/members', function (req, res, next) {
 
 // get a particular mob-member of a particular mob
 router.get('/mobs/:mobId/members/:memberId', function (req, res, next) {
-  res.send('mobs');
+  const mobId = +req.params.mobId;
+  const memberId = +req.params.memberId;
+  const result = members.filter(member => {
+    return member.memberId === memberId && member.mobId === mobId
+  })
+  res.json(result);
 });
 
 module.exports = router;
