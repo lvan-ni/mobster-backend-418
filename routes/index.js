@@ -28,6 +28,10 @@ const mobs = [
     mobId: 3,
     mobName: 'LOGA',
   },
+  {
+    mobId: 4,
+    mobName: 'JAR',
+  }
 ];
 
 const members = [
