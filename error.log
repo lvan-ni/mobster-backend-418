@@ -1,20 +1,17 @@
-{"level":"error","message":"\"mobName\" length must be at least 3 characters long"}
-{"level":"error","message":"mobs is not defined"}
-{"level":"error","message":"mobs is not defined"}
-{"level":"error","message":"mobs is not defined"}
-{"level":"error","message":"mobs is not defined"}
-{"level":"error","message":"mobs is not defined"}
-{"level":"error","message":"This mob does not exist"}
-{"level":"error","message":"this member does not exist"}
-{"level":"error","message":"This mob does not exist & not members present"}
-{"level":"error","message":"\"memberName\" length must be at least 3 characters long"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-{"level":"error","message":"Mob nor Member does not exist"}
-undefined
-undefined
-undefined
+--- NO MOBS IN DATABASE ---
+{"level":"error","message":"There are currently no mobs","timestamp":"2023-06-09T11:58:40.166Z"}
+
+--- CANNOT ADD NEW MOB DUE TO FAILED VALIDATION ---
+{"level":"error","message":"\"mobName\" length must be at least 3 characters long","timestamp":"2023-06-09T11:59:10.322Z"}
+
+--- CANNOT GET SPECIFIC MOB ---
+{"level":"error","message":"This mob does not exist","timestamp":"2023-06-09T12:00:36.647Z"}
+
+--- CANNOT GET ALL MEMBERS OF MOB ---
+{"level":"error","message":"This mob does not exist & not members present","timestamp":"2023-06-09T12:01:21.317Z"}
+
+--- CANNOT ADD A NEW MEMBER TO A MOB DUE TO FAILED VALIDATION ---
+{"level":"error","message":"\"memberName\" length must be at least 3 characters long","timestamp":"2023-06-09T12:01:50.525Z"}
+
+--- CANNOT GET AN INDIVIDUAL MEMBER OF MOB ---
+{"level":"error","message":"Mob nor Member does not exist","timestamp":"2023-06-09T12:02:35.648Z"}

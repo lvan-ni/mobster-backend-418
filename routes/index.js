@@ -12,22 +12,22 @@ const schemaMember = Joi.object({
 });
 
 const mobs = [
-  {
-    mobId: 1,
-    mobName: '418',
-  },
-  {
-    mobId: 2,
-    mobName: 'TBD',
-  },
-  {
-    mobId: 3,
-    mobName: 'LOGA',
-  },
-  {
-    mobId: 4,
-    mobName: 'JAR',
-  },
+  // {
+  //   mobId: 1,
+  //   mobName: '418',
+  // },
+  // {
+  //   mobId: 2,
+  //   mobName: 'TBD',
+  // },
+  // {
+  //   mobId: 3,
+  //   mobName: 'LOGA',
+  // },
+  // {
+  //   mobId: 4,
+  //   mobName: 'JAR',
+  // }
 ];
 
 const members = [
@@ -90,12 +90,10 @@ const members = [
 
 const logger = winston.createLogger({
   level: 'error',
-  // format: winston.format.combine(
-  //   winston.format.timestamp()
-  // ),
+  format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: 'error.log', timestamp: true }),
+    new winston.transports.File({ filename: 'error.log' }),
   ],
 });
 
@@ -120,7 +118,7 @@ router.get('/mobs', function (req, res, next) {
     }
   } catch (error) {
     //Log error
-    logger.error(error.message);
+    logger.error('There are currently no mobs');
     res.status(404).send('Data does not exist');
   }
 });
