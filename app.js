@@ -8,12 +8,10 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-const whitelist = ['http://localhost:5173', 'https://lvan-ni.github.io/mobster-frontend-418/'];
-
+const whitelist = ['http://localhost:5174', 'https://lvan-ni.github.io/mobster-frontend-418/'];
 const corsOptions = {
   origin: whitelist,
 };
-
 app.use(cors(corsOptions));
 
 
