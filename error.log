@@ -15,3 +15,6 @@
 
 --- CANNOT GET AN INDIVIDUAL MEMBER OF MOB ---
 {"level":"error","message":"Mob nor Member does not exist","timestamp":"2023-06-09T12:02:35.648Z"}
+{"level":"error","message":"This mob does not exist & not members present","timestamp":"2023-06-09T14:38:46.365Z"}
+{"level":"error","message":"This mob does not exist & not members present","timestamp":"2023-06-09T14:39:43.659Z"}
+{"level":"error","message":"This mob does not exist & not members present","timestamp":"2023-06-09T14:40:17.463Z"}

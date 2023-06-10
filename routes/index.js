@@ -106,7 +106,7 @@ router.get('/', function (req, res, next) {
   res.send('Home');
 });
 
-// get all mobs
+// Get all mobs
 router.get('/mobs', function (req, res, next) {
   try {
     // Simulate error from Database(GET went wrong)
@@ -117,7 +117,7 @@ router.get('/mobs', function (req, res, next) {
       res.status(302).res.json({ mobs });
     }
   } catch (error) {
-    //Log error
+    // Log error
     logger.error('There are currently no mobs');
     res.status(404).send('Data does not exist');
   }
@@ -179,7 +179,7 @@ router.get('/mobs/:mobId/members', function (req, res, next) {
   }
 });
 
-// add a new mob-member to the mob
+// Add a new mob-member to the mob
 router.post('/mobs/:mobId/members', function (req, res, next) {
   const validation = schemaMember.validate({ memberName: req.body.memberName });
 
